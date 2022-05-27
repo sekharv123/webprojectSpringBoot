@@ -4,6 +4,7 @@ Used database authentication when login.
 http://localhost:8081/login
 
 Register users:
+
 Add Admin user with role : ADMIN
 
 Add other users with role : USER
