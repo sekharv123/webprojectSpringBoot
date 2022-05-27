@@ -16,21 +16,21 @@
 	<definition name="home" extends="mainLayout">
 		<put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
 	</definition> 
-	<definition name="addStudent" extends="mainLayout">
-		<put-attribute name="body" value="/WEB-INF/jsp/addStudent.jsp" />
-	</definition> 
+	
 	<definition name="login" extends="mainLayout">
 		<put-attribute name="header" value="/WEB-INF/tiles/loginHeader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 	</definition>
+	
+	<definition name="admin/*" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/admin/{1}.jsp" />
+	</definition> 
 	
 	<definition name="addUser" extends="mainLayout">
 		<put-attribute name="header" value="/WEB-INF/tiles/loginHeader.jsp" />
 		<put-attribute name="body" value="/WEB-INF/jsp/addUser.jsp" />
 	</definition> 
 	
-	<definition name="userSummary" extends="mainLayout">
-		<put-attribute name="body" value="/WEB-INF/jsp/userSummary.jsp" />
-	</definition>         
+	         
 
 </tiles-definitions>

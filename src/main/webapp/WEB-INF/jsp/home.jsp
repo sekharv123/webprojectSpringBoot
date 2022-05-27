@@ -32,7 +32,7 @@
                             <td>
                                 <c:out value="${st.address}" />
                             </td>
-                            <td><a href="/update?id=${st.id}">Update</a></td>
+                            <td><a href="/update/${st.id}">Update</a></td>
                             <td><a href="/delete?id=${st.id}">Delete</a></td>
                         </tr>
                     </c:forEach>

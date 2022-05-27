@@ -39,7 +39,7 @@ public class UserController {
 	public String userSummary(Model model) {
 		List<User> users = userService.getUsers();
 		model.addAttribute("userList", users);
-		return "userSummary";
+		return "admin/userSummary";
 	}
 
 }
