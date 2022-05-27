@@ -5,6 +5,7 @@ http://localhost:8081/login
 
 Register users:
 Add Admin user with role : ADMIN
+
 Add other users with role : USER
 
 Only Admin user can create new student.
