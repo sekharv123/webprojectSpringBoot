@@ -1,5 +1,6 @@
 package com.example.crud.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.crud.config.StudentMgmtException;
 import com.example.crud.entity.Student;
 import com.example.crud.service.StudentService;
 
@@ -23,25 +26,31 @@ public class HomeController {
 	private StudentService studentService;
 
 	@GetMapping({ "/home" })
-	public String home(Model model) {
+	public String home(Model model) throws StudentMgmtException {
 		List<Student> students = studentService.getStudents();
+		if(students.isEmpty())
+			throw new StudentMgmtException("No student records found.");
 		model.addAttribute("stlist", students);
 		return "home";
 	}
-
+	
 	@GetMapping({ "/create" })
 	public String createStudent() {
 		return "admin/addStudent";
 	}
 
 	@PostMapping({ "/addStudent" })
-	public String addStudent(@ModelAttribute Student st) {
+	public String addStudent(@ModelAttribute Student st) throws StudentMgmtException {
 		Student stu = null;
 		if (st.getId() != null) {
-			stu = studentService.getStudentById(st.getId().intValue());
+			try {
+				stu = studentService.getStudentById(st.getId().intValue());
 			stu.setName(st.getName());
 			stu.setAddress(st.getAddress());
 			studentService.addStudent(stu);
+			} catch (Exception e) {
+				throw new StudentMgmtException("Student with Id "+st.getId()+ " not found");
+			}
 		} else {
 			studentService.addStudent(st);
 		}

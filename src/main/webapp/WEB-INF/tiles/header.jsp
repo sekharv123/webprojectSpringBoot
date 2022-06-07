@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>  
 <div class="container-fluid bg-success">                 
-    <div class="text-center">
+    <div class="text-center" id="titleLabel">
         <h1 style="color:blue;">Student mgmt system</h1>
     </div>
     <sec:authorize access="hasRole('ADMIN')">
@@ -13,4 +13,8 @@
     <div class="text-right"><a href="/logout">Logout</a></div>
 
 </div>
-    
+<script>
+    document.getElementById("titleLabel").onclick = function(){
+        window.location.href="/home";
+        };
+</script>
