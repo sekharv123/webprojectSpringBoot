@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.example.crud.entity.User;
 import com.example.crud.service.UserService;
 
+// this class is for add new user and get summary of users.
 @Controller
 public class UserController {
 	

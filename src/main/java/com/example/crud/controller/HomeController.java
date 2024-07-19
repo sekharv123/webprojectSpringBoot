@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.crud.config.StudentMgmtException;
 import com.example.crud.entity.Student;
 import com.example.crud.service.StudentService;
-
+//this class is for CRUD operations on Students object
 @Controller
 public class HomeController {
 	
